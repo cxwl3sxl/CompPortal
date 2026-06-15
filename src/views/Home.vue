@@ -11,12 +11,7 @@
           :class="{ active: !store.activeCategory }"
           @click="store.setCategory(null)"
         >
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="7" height="7" rx="1" />
-            <rect x="14" y="3" width="7" height="7" rx="1" />
-            <rect x="3" y="14" width="7" height="7" rx="1" />
-            <rect x="14" y="14" width="7" height="7" rx="1" />
-          </svg>
+          <font-awesome-icon :icon="['fas', 'th-large']" width="18" />
           <span>全部系统</span>
           <span class="count">{{ store.allSystems.length }}</span>
         </button>
@@ -27,9 +22,7 @@
           :class="{ active: store.activeCategory === cat.name }"
           @click="store.setCategory(cat.name)"
         >
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-            <component :is="getCategoryIcon(cat.icon)" />
-          </svg>
+          <font-awesome-icon :icon="getCategoryIcon(cat.icon)" width="18" />
           <span>{{ cat.name }}</span>
           <span class="count">{{ cat.systems.length }}</span>
         </button>
@@ -138,7 +131,7 @@
 </template>
 
 <script setup>
-import { ref, computed, h } from 'vue'
+import { ref, computed } from 'vue'
 import { usePortalStore } from '@/store/portal'
 import SystemCard from '@/components/SystemCard.vue'
 
@@ -150,16 +143,14 @@ const currentCategory = computed(() => {
   return store.categories.find(c => c.name === store.activeCategory)
 })
 
-const icons = {
-  Monitor: () => h('rect', { x: 3, y: 3, width: 18, height: 14, rx: 2 }),
-  DataLine: () => h('polyline', { points: '4 18 9 12 14 16 20 6' }),
-  Setting: () => h('circle', { cx: 12, cy: 12, r: 7 }),
-  User: () => h('path', { d: 'M4 20c0-4 4-7 8-7s8 3 8 7M12 11a4 4 0 100-8 4 4 0 000 8z' })
-}
-
 function getCategoryIcon(icon) {
-  const fn = icons[icon] || icons.Monitor
-  return { render: fn }
+  const iconMap = {
+    globe: 'globe',
+    rocket: 'rocket',
+    wrench: 'wrench',
+    'network-wired': 'network-wired',
+  }
+  return ['fas', iconMap[icon] || 'cube']
 }
 </script>
 

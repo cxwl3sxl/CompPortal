@@ -2,7 +2,7 @@
   {
     "name": "公网系统",
     "description": "部署于公网的各个系统",
-    "icon": "Monitor",
+    "icon": "globe",
     "systems": [
       {
         "name": "急救秘书管理中心",
@@ -106,7 +106,7 @@
   {
     "name": "产品部署",
     "description": "产品发布和部署相关的工具",
-    "icon": "Monitor",
+    "icon": "rocket",
     "systems": [
       {
         "name": "版本库",
@@ -159,7 +159,7 @@
   {
     "name": "开发工具",
     "description": "开发和运维相关工具",
-    "icon": "Setting",
+    "icon": "wrench",
     "systems": [
       {
         "name": "禅道",
@@ -221,7 +221,7 @@
   {
     "name": "内网管理",
     "description": "内部局域网管理工具和设备入口",
-    "icon": "User",
+    "icon": "network-wired",
     "systems": [
       {
         "name": "DNS服务",

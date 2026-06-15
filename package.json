@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/vue-fontawesome": "^3.2.0",
     "element-plus": "^2.6.3",
     "pinia": "^2.1.7",
     "pinyin-pro": "^3.28.1",
