@@ -60,10 +60,11 @@ const searchFocused = ref(false)
 const copied = ref(null)
 
 const allIcons = computed(() => {
-  return Object.values(fas)
-    .filter(item => item.iconName)
-    .map(item => item.iconName)
-    .sort()
+  return [...new Set(
+    Object.values(fas)
+      .filter(item => item.iconName)
+      .map(item => item.iconName)
+  )].sort()
 })
 
 const filteredIcons = computed(() => {
