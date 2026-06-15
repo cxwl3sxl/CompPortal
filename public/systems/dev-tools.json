@@ -3,7 +3,6 @@
     "name": "禅道",
     "url": "http://cd.pj-local.cn/zentao/user-login-L3plbnRhby8=.html",
     "description": "禅道项目管理平台",
-    "icon": "fa-atom",
     "tags": [
       "禅道",
       "项目管理"
@@ -24,7 +23,6 @@
     "name": "GIT仓库",
     "url": "http://repo.pj-local.cn/",
     "description": "GIT代码仓库",
-    "icon": "display",
     "tags": [
       "代码",
       "GIT"
@@ -35,7 +33,6 @@
     "name": "SVN仓库",
     "url": "https://repo.pj-local.cn/",
     "description": "SVN代码仓库",
-    "icon": "display",
     "tags": [
       "代码",
       "SVN"
@@ -46,7 +43,7 @@
     "name": "Console",
     "url": "https://web-log.kaxhkj.cn/#/",
     "description": "Console日志调试助手",
-    "icon": "display",
+    "icon": "terminal",
     "tags": [
       "console",
       "日志"

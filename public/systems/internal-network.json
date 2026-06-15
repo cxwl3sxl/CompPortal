@@ -3,7 +3,6 @@
     "name": "DNS服务",
     "url": "http://dns.pj-local.cn/",
     "description": "管理内网DNS服务",
-    "icon": "chart-simple",
     "tags": [
       "DNS"
     ],
@@ -13,7 +12,7 @@
     "name": "Voip语音网关",
     "url": "https://192.168.0.218/frame.htm",
     "description": "Voip语音网关",
-    "icon": "chart-simple",
+    "icon": "phone-volume",
     "tags": [
       "voip"
     ],
@@ -23,7 +22,7 @@
     "name": "电信路由器",
     "url": "http://192.168.1.1:8080/",
     "description": "电信路由器",
-    "icon": "chart-simple",
+    "icon": "route",
     "tags": [
       "路由器"
     ],
