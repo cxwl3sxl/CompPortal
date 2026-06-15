@@ -26,6 +26,32 @@
         </button>
       </div>
     </div>
+    <div class="header-right">
+      <button class="help-btn" @click="openHelp" title="帮助">
+        <font-awesome-icon :icon="['fas', 'circle-question']" />
+      </button>
+    </div>
+
+    <!-- 帮助弹窗 -->
+    <Teleport to="body">
+      <Transition name="modal">
+        <div v-if="showHelp" class="help-overlay" @click.self="closeHelp">
+          <div class="help-modal">
+            <div class="help-modal-header">
+              <span class="help-modal-title">帮助</span>
+              <button class="help-modal-close" @click="closeHelp">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="help-modal-body">
+              <p class="help-placeholder">帮助内容待补充...</p>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </header>
 </template>
 
@@ -36,6 +62,7 @@ import { usePortalStore } from '@/store/portal'
 const store = usePortalStore()
 const searchInput = ref('')
 const searchFocused = ref(false)
+const showHelp = ref(false)
 
 function handleSearch() {
   store.setSearch(searchInput.value)
@@ -46,7 +73,13 @@ function clearSearch() {
   store.setSearch('')
 }
 
+function openHelp() {
+  showHelp.value = true
+}
 
+function closeHelp() {
+  showHelp.value = false
+}
 </script>
 
 <style lang="scss" scoped>
@@ -179,6 +212,41 @@ input {
 
 .header-right {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.help-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.08);
+  border-radius: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 16px;
+
+  svg {
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.2);
+    color: var(--primary);
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.1);
+  }
+}
+
+.help-placeholder {
+  color: var(--text-muted);
+  font-size: 14px;
+  letter-spacing: 0.3px;
 }
 
 .header-status {
@@ -206,6 +274,90 @@ input {
   }
 }
 
+// 帮助弹窗
+.help-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.help-modal {
+  width: 560px;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 120px);
+  background: #1a1f2e;
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.help-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.help-modal-title {
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.help-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--text);
+  }
+}
+
+.help-modal-body {
+  padding: 24px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 过渡动画
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.25s ease;
+
+  .help-modal {
+    transition: all 0.25s ease;
+  }
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+
+  .help-modal {
+    transform: scale(0.95) translateY(8px);
+    opacity: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .app-header {
     padding: 0 16px;
@@ -221,6 +373,10 @@ input {
   }
 
   .shortcut {
+    display: none;
+  }
+
+  .header-right {
     display: none;
   }
 }
