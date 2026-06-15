@@ -1,0 +1,81 @@
+:root {
+  --primary: #38bdf8;
+  --primary-light: #7dd3fc;
+  --primary-dark: #0284c7;
+  --bg: #0a0e1a;
+  --bg-secondary: #0f172a;
+  --bg-card: rgba(56, 189, 248, 0.04);
+  --bg-hover: rgba(56, 189, 248, 0.08);
+  --glass: rgba(56, 189, 248, 0.04);
+  --text: #fff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --border: rgba(56, 189, 248, 0.08);
+  --border-light: rgba(56, 189, 248, 0.15);
+  --accent: #38bdf8;
+  --accent2: #a78bfa;
+  --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #a78bfa 100%);
+  --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --glow-blue: 0 0 20px rgba(56, 189, 248, 0.15);
+  --glow-purple: 0 0 20px rgba(167, 139, 250, 0.15);
+  --radius: 14px;
+  --radius-lg: 18px;
+  --header-height: 64px;
+  --sidebar-width: 240px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+    'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: #0a0e1a;
+  background-image:
+    /* Subtle tech grid overlay */
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    /* Center blue glow */
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 70%),
+    /* Bottom right purple glow */
+    radial-gradient(ellipse 40% 40% at 80% 90%, rgba(167, 139, 250, 0.05) 0%, transparent 60%);
+  background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%;
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
+}
+
+::selection {
+  background: var(--primary);
+  color: #fff;
+}

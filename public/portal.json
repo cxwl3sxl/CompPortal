@@ -1,0 +1,118 @@
+[
+  {
+    "name": "办公协作",
+    "description": "日常办公和协作工具",
+    "icon": "Monitor",
+    "systems": [
+      {
+        "name": "OA系统",
+        "url": "http://oa.company.com",
+        "description": "综合办公自动化系统",
+        "icon": "document",
+        "tags": ["办公", "审批", "流程"],
+        "department": "行政部"
+      },
+      {
+        "name": "企业邮箱",
+        "url": "http://mail.company.com",
+        "description": "内部邮件收发系统",
+        "icon": "message",
+        "tags": ["邮件", "通讯"],
+        "department": "IT部"
+      },
+      {
+        "name": "即时通讯",
+        "url": "http://im.company.com",
+        "description": "内部即时通讯工具",
+        "icon": "chat",
+        "tags": ["通讯", "聊天"],
+        "department": "IT部"
+      }
+    ]
+  },
+  {
+    "name": "开发工具",
+    "description": "开发和运维相关工具",
+    "icon": "Setting",
+    "systems": [
+      {
+        "name": "CI/CD平台",
+        "url": "http://ci.company.com",
+        "description": "持续集成和部署平台",
+        "icon": "link",
+        "tags": ["部署", "自动化"],
+        "department": "技术部"
+      },
+      {
+        "name": "代码仓库",
+        "url": "http://git.company.com",
+        "description": "Git代码托管平台",
+        "icon": "folder",
+        "tags": ["代码", "版本"],
+        "department": "技术部"
+      },
+      {
+        "name": "监控平台",
+        "url": "http://monitor.company.com",
+        "description": "系统运行状态监控",
+        "icon": "monitor",
+        "tags": ["监控", "运维"],
+        "department": "运维组"
+      }
+    ]
+  },
+  {
+    "name": "人事财务",
+    "description": "人事管理和财务系统",
+    "icon": "User",
+    "systems": [
+      {
+        "name": "财务系统",
+        "url": "http://finance.company.com",
+        "description": "财务核算和报销系统",
+        "icon": "chart",
+        "tags": ["财务", "报销"],
+        "department": "财务部"
+      },
+      {
+        "name": "HR系统",
+        "url": "http://hr.company.com",
+        "description": "人力资源管理系统",
+        "icon": "user",
+        "tags": ["人事", "考勤"],
+        "department": "人力资源部"
+      }
+    ]
+  },
+  {
+    "name": "业务系统",
+    "description": "核心业务处理系统",
+    "icon": "DataLine",
+    "systems": [
+      {
+        "name": "CRM系统",
+        "url": "http://crm.company.com",
+        "description": "客户关系管理系统",
+        "icon": "user",
+        "tags": ["客户", "销售"],
+        "department": "销售部"
+      },
+      {
+        "name": "ERP系统",
+        "url": "http://erp.company.com",
+        "description": "企业资源计划系统",
+        "icon": "data",
+        "tags": ["资源", "计划"],
+        "department": "运营部"
+      },
+      {
+        "name": "项目管理",
+        "url": "http://pm.company.com",
+        "description": "项目进度和任务管理系统",
+        "icon": "calendar",
+        "tags": ["项目", "任务"],
+        "department": "项目部"
+      }
+    ]
+  }
+]
