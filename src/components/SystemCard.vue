@@ -13,6 +13,7 @@
         :alt="system.name"
         class="icon-img"
       />
+      <font-awesome-icon v-else-if="system.icon" :icon="['fas', system.icon]" class="card-fa-icon" />
       <svg v-else viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="3" y="3" width="18" height="18" rx="2" />
         <path d="M9 3v18M3 9h18" />
@@ -174,6 +175,11 @@ const hash = computed(() => {
   flex-shrink: 0;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   color: #fff;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 
   .icon-img {
     width: 28px;

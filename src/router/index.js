@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import Icons from '@/views/Icons.vue'
 
 const routes = [
   {
@@ -7,6 +8,12 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: { title: '品杰科技' }
+  },
+  {
+    path: '/icon',
+    name: 'Icons',
+    component: Icons,
+    meta: { title: 'FA 图标库 - 品杰科技' }
   }
 ]
 

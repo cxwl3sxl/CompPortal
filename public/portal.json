@@ -8,7 +8,7 @@
         "name": "急救秘书管理中心",
         "url": "https://sec-mgr-center.pjservice.cn/",
         "description": "急救秘书管理、注册中心",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "急救秘书"
         ],
@@ -18,7 +18,7 @@
         "name": "业务监控中心(V6)",
         "url": "https://jk6.pjservice.cn/",
         "description": "6.0版本的业务监控中心",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "监控",
           "6.0"
@@ -29,7 +29,7 @@
         "name": "业务监控中心(V4)",
         "url": "http://jk.pjservice.cn/",
         "description": "4.0版本的业务监控中心",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "监控",
           "4.0"
@@ -40,7 +40,7 @@
         "name": "Wiki文档中心",
         "url": "http://wiki.pjservice.cn/",
         "description": "Wiki文档库",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "wiki",
           "文档"
@@ -51,7 +51,7 @@
         "name": "API文档库",
         "url": "http://apidoc.pjservice.cn",
         "description": "API文档库",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "api",
           "文档"
@@ -62,7 +62,7 @@
         "name": "日志中心",
         "url": "http://logreport.pjservice.cn/logs/",
         "description": "平板、应用程序上报的日志集中存储中心",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "日志"
         ],
@@ -72,7 +72,7 @@
         "name": "Android升级平台(PRD)",
         "url": "http://aus.pjservice.cn/",
         "description": "Android升级服务(正式环境)",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "Android"
         ],
@@ -82,7 +82,7 @@
         "name": "区域编码互查系统",
         "url": "https://area-codes.pjservice.cn/",
         "description": "天地图做区域检索时需要使用Code，但内部系统存储名称，故通过此平台进行转换",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "区域编码"
         ],
@@ -92,7 +92,7 @@
         "name": "锁屏密码重置服务",
         "url": "http://pwd-reset.pjservice.cn/",
         "description": "Android App锁屏密码重置服务",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "Android",
           "锁屏",
@@ -112,7 +112,7 @@
         "name": "版本库",
         "url": "http://192.168.0.31/products/",
         "description": "所有产品发布、下载仓库",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "产品",
           "版本"
@@ -123,7 +123,7 @@
         "name": "Android升级平台(SIT)",
         "url": "http://192.168.0.31:8754/",
         "description": "Android系统APP版本仓库, SIT环境",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "Android",
           "产品",
@@ -135,7 +135,7 @@
         "name": "证书签发服务",
         "url": "http://192.168.0.31:8081/",
         "description": "签发基于公司私有根证书的证书",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "证书",
           "SSL",
@@ -147,7 +147,7 @@
         "name": "离线地图制作",
         "url": "http://map.pj-local.cn/",
         "description": "基于OpenStreetMap的离线地图制作服务",
-        "icon": "document",
+        "icon": "file-lines",
         "tags": [
           "地图",
           "OpenStreetMap"
@@ -187,7 +187,7 @@
         "name": "GIT仓库",
         "url": "http://repo.pj-local.cn/",
         "description": "GIT代码仓库",
-        "icon": "monitor",
+        "icon": "display",
         "tags": [
           "代码",
           "GIT"
@@ -198,7 +198,7 @@
         "name": "SVN仓库",
         "url": "https://repo.pj-local.cn/",
         "description": "SVN代码仓库",
-        "icon": "monitor",
+        "icon": "display",
         "tags": [
           "代码",
           "SVN"
@@ -209,7 +209,7 @@
         "name": "Console",
         "url": "https://web-log.kaxhkj.cn/#/",
         "description": "Console日志调试助手",
-        "icon": "monitor",
+        "icon": "display",
         "tags": [
           "console",
           "日志"
@@ -227,7 +227,7 @@
         "name": "DNS服务",
         "url": "http://dns.pj-local.cn/",
         "description": "管理内网DNS服务",
-        "icon": "chart",
+        "icon": "chart-simple",
         "tags": [
           "DNS"
         ],
@@ -237,7 +237,7 @@
         "name": "Voip语音网关",
         "url": "https://192.168.0.218/frame.htm",
         "description": "Voip语音网关",
-        "icon": "chart",
+        "icon": "chart-simple",
         "tags": [
           "voip"
         ],
@@ -247,7 +247,7 @@
         "name": "电信路由器",
         "url": "http://192.168.1.1:8080/",
         "description": "电信路由器",
-        "icon": "chart",
+        "icon": "chart-simple",
         "tags": [
           "路由器"
         ],
