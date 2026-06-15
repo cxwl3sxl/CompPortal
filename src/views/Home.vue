@@ -362,9 +362,17 @@ function getCategoryIcon(icon) {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.06);
+  padding: 16px 20px;
+  margin: 0 -20px 16px;
+  border-radius: 10px;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 10;
+  background: rgba(17, 22, 36, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.06);
+  transition: all 0.2s ease;
 }
 
 .section-title {
