@@ -8,10 +8,17 @@ export const usePortalStore = defineStore('portal', () => {
   const activeCategory = ref(null)
   const loading = ref(true)
 
-  // 从 public/portal.json 加载数据，修改后刷新页面即可生效
+  // 从 public/portal.json 加载数据（categories -> systems 子文件引用）
   fetch('/portal.json')
     .then(res => res.json())
-    .then(data => {
+    .then(async data => {
+      // 并行加载每个分类的 systems 子文件
+      await Promise.all(data.map(async (cat) => {
+        if (typeof cat.systems === 'string') {
+          const res = await fetch('/' + cat.systems)
+          cat.systems = await res.json()
+        }
+      }))
       // 预计算拼音数据，提升搜索性能
       data.forEach(cat => {
         cat.systems.forEach(sys => {
