@@ -15,7 +15,7 @@
             <el-tabs v-model="activeTab" class="help-tabs">
               <el-tab-pane label="使用说明" name="usage">
                 <div class="usage-content">
-                  <p class="help-placeholder">使用说明待补充...</p>
+                  <HelpCard />
                 </div>
               </el-tab-pane>
               <el-tab-pane label="ICON清单" name="icons">
@@ -32,6 +32,7 @@
 <script setup>
 import { ref } from 'vue'
 import IconGrid from '@/components/IconGrid.vue'
+import HelpCard from './HelpCard.vue';
 
 defineProps({
   visible: {
@@ -108,19 +109,6 @@ const activeTab = ref('usage')
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.help-placeholder {
-  color: var(--text-muted);
-  font-size: 14px;
-  letter-spacing: 0.3px;
-}
-
-.usage-content {
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 // el-tabs 暗色主题
