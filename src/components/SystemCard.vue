@@ -20,7 +20,14 @@
     </div>
     <div class="card-content">
       <h3 class="card-name">{{ system.name }}</h3>
-      <p class="card-desc">{{ system.description }}</p>
+      <el-tooltip
+        :content="system.description"
+        placement="bottom"
+        :disabled="!isOverflowing"
+        popper-class="card-desc-tooltip"
+      >
+        <p ref="descRef" class="card-desc">{{ system.description }}</p>
+      </el-tooltip>
       <div class="card-meta" v-if="viewMode === 'list'">
         <span class="tag" v-for="tag in system.tags.slice(0, 3)" :key="tag">{{ tag }}</span>
         <span class="department">{{ system.department }}</span>
@@ -35,7 +42,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed, onMounted, watch, nextTick } from 'vue'
 
 const props = defineProps({
   system: {
@@ -47,6 +54,21 @@ const props = defineProps({
     default: 'grid'
   }
 })
+
+const descRef = ref(null)
+const isOverflowing = ref(false)
+
+function checkOverflow() {
+  nextTick(() => {
+    const el = descRef.value
+    if (el) {
+      isOverflowing.value = el.scrollHeight > el.clientHeight
+    }
+  })
+}
+
+onMounted(checkOverflow)
+watch(() => props.viewMode, checkOverflow)
 
 const gradients = [
   'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)',   // sky
