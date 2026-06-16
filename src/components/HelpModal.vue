@@ -59,7 +59,8 @@ const activeTab = ref('usage')
 }
 
 .help-modal {
-  width: 680px;
+  min-width: 400px;
+  width: 60%;
   max-width: calc(100vw - 48px);
   height: calc(100vh - 120px);
   max-height: calc(100vh - 120px);

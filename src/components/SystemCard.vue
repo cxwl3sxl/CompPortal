@@ -89,6 +89,7 @@ const hash = computed(() => {
   border-radius: var(--radius);
   text-decoration: none;
   color: inherit;
+  box-shadow: var(--shadow);
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
 
@@ -96,7 +97,7 @@ const hash = computed(() => {
     border-color: rgba(56, 189, 248, 0.2);
     background: rgba(56, 189, 248, 0.08);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.08);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(56, 189, 248, 0.08);
 
     .card-icon {
       transform: scale(1.08);
