@@ -1,18 +1,7 @@
 <template>
-  <a
-    :href="system.url"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="system-card"
-    :class="viewMode"
-  >
+  <a :href="system.url" target="_blank" rel="noopener noreferrer" class="system-card" :class="viewMode">
     <div class="card-icon" :style="{ background: gradients[hash] }">
-      <img
-        v-if="system.iconUrl"
-        :src="system.iconUrl"
-        :alt="system.name"
-        class="icon-img"
-      />
+      <img v-if="isImageIcon(system.icon)" :src="system.icon" :alt="system.name" class="icon-img" />
       <font-awesome-icon v-else-if="system.icon" :icon="['fas', system.icon]" class="card-fa-icon" />
       <svg v-else viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -21,12 +10,8 @@
     </div>
     <div class="card-content">
       <h3 class="card-name">{{ system.name }}</h3>
-      <el-tooltip
-        :content="system.description"
-        placement="bottom"
-        :disabled="!isOverflowing"
-        popper-class="card-desc-tooltip"
-      >
+      <el-tooltip :content="system.description" placement="bottom" :disabled="!isOverflowing"
+        popper-class="card-desc-tooltip">
         <p ref="descRef" class="card-desc">{{ system.description }}</p>
       </el-tooltip>
       <div class="card-meta" v-if="viewMode === 'list'">
@@ -58,6 +43,9 @@ const props = defineProps({
 
 const descRef = ref(null)
 const isOverflowing = ref(false)
+const isImageIcon = (icon) => {
+  return `${icon}`.startsWith("http") || `${icon}`.startsWith("/");
+}
 
 function checkOverflow() {
   nextTick(() => {
