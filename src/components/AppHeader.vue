@@ -27,6 +27,15 @@
       </div>
     </div>
     <div class="header-right">
+      <button class="theme-btn" @click="store.toggleTheme()" :title="store.theme === 'dark' ? '切换浅色模式' : '切换深色模式'">
+        <svg v-if="store.theme === 'dark'" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5" />
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        </svg>
+        <svg v-else viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+      </button>
       <button class="help-btn" @click="showHelp = true" title="帮助">
         <font-awesome-icon :icon="['fas', 'circle-question']" />
       </button>
@@ -63,10 +72,10 @@ function clearSearch() {
   left: 0;
   right: 0;
   height: var(--header-height);
-  background: rgba(10, 14, 26, 0.7);
+  background: var(--header-bg);
   backdrop-filter: blur(30px) saturate(1.2);
   -webkit-backdrop-filter: blur(30px) saturate(1.2);
-  border-bottom: 1px solid rgba(56, 189, 248, 0.06);
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   padding: 0 24px;
@@ -191,14 +200,15 @@ input {
   margin-left: 12px;
 }
 
+.theme-btn,
 .help-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: rgba(56, 189, 248, 0.04);
-  border: 1px solid rgba(56, 189, 248, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text-muted);
   cursor: pointer;
@@ -210,11 +220,15 @@ input {
   }
 
   &:hover {
-    background: rgba(56, 189, 248, 0.1);
-    border-color: rgba(56, 189, 248, 0.2);
+    background: var(--bg-hover);
+    border-color: var(--border-light);
     color: var(--primary);
     box-shadow: 0 0 16px rgba(56, 189, 248, 0.1);
   }
+}
+
+.theme-btn {
+  margin-right: 8px;
 }
 
 .header-status {

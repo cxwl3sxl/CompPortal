@@ -145,5 +145,7 @@ onBeforeUnmount(() => {
   filter: blur(70px);
   -webkit-filter: blur(70px);
   will-change: transform;
+  opacity: var(--ambient-opacity);
+  transition: opacity 0.5s ease;
 }
 </style>

@@ -167,10 +167,10 @@ function getCategoryIcon(icon) {
   left: 0;
   bottom: 0;
   width: var(--sidebar-width);
-  background: rgba(56, 189, 248, 0.03);
+  background: var(--sidebar-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(56, 189, 248, 0.06);
+  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -178,7 +178,7 @@ function getCategoryIcon(icon) {
 
 .sidebar-header {
   padding: 20px 20px 16px;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.06);
+  border-bottom: 1px solid var(--border);
 }
 
 .sidebar-title {
@@ -254,23 +254,23 @@ function getCategoryIcon(icon) {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-color: rgba(56, 189, 248, 0.2);
-    color: #fff;
+    color: var(--text);
 
     svg {
       opacity: 1;
     }
 
     .count {
-      background: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.8);
+      background: var(--bg-hover);
+      color: var(--text-secondary);
     }
   }
 }
 
 .sidebar-footer {
   padding: 16px 20px;
-  border-top: 1px solid rgba(56, 189, 248, 0.06);
-  background: rgba(56, 189, 248, 0.03);
+  border-top: 1px solid var(--border);
+  background: var(--sidebar-bg);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -368,10 +368,10 @@ function getCategoryIcon(icon) {
   position: sticky;
   top: var(--header-height);
   z-index: 10;
-  background: rgba(17, 22, 36, 0.75);
+  background: var(--section-header-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(56, 189, 248, 0.06);
+  border: 1px solid var(--border);
   transition: all 0.2s ease;
 }
 

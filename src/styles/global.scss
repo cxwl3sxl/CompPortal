@@ -24,6 +24,35 @@
   --radius-lg: 18px;
   --header-height: 64px;
   --sidebar-width: 240px;
+  --ambient-opacity: 1;
+  --header-bg: rgba(10, 14, 26, 0.7);
+  --sidebar-bg: rgba(56, 189, 248, 0.03);
+  --modal-overlay: rgba(0, 0, 0, 0.55);
+  --modal-bg: #1a1f2e;
+  --section-header-bg: rgba(17, 22, 36, 0.75);
+}
+
+[data-theme='light'] {
+  --bg: #f0f4f8;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(56, 189, 248, 0.03);
+  --bg-hover: rgba(56, 189, 248, 0.06);
+  --glass: rgba(255, 255, 255, 0.6);
+  --text: #1a1f36;
+  --text-secondary: rgba(26, 31, 54, 0.7);
+  --text-muted: rgba(26, 31, 54, 0.6);
+  --border: rgba(56, 189, 248, 0.1);
+  --border-light: rgba(56, 189, 248, 0.18);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --glow-blue: 0 0 20px rgba(56, 189, 248, 0.06);
+  --glow-purple: 0 0 20px rgba(167, 139, 250, 0.06);
+  --ambient-opacity: 0.35;
+  --header-bg: rgba(255, 255, 255, 0.75);
+  --sidebar-bg: rgba(255, 255, 255, 0.5);
+  --modal-overlay: rgba(0, 0, 0, 0.25);
+  --modal-bg: #ffffff;
+  --section-header-bg: rgba(255, 255, 255, 0.85);
 }
 
 * {
@@ -35,7 +64,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  background: #0a0e1a;
+  background: var(--bg);
   background-image:
     /* Subtle tech grid overlay */
     linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),

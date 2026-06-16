@@ -8,6 +8,23 @@ export const usePortalStore = defineStore('portal', () => {
   const activeCategory = ref(null)
   const loading = ref(true)
 
+  // 主题切换（dark / light）
+  const theme = ref(localStorage.getItem('portal-theme') || 'dark')
+
+  function applyTheme(val) {
+    document.documentElement.dataset.theme = val
+    localStorage.setItem('portal-theme', val)
+  }
+
+  // 初始化时应用已保存的主题
+  applyTheme(theme.value)
+
+  function toggleTheme() {
+    const next = theme.value === 'dark' ? 'light' : 'dark'
+    theme.value = next
+    applyTheme(next)
+  }
+
   // 从 public/portal.json 加载数据（categories -> systems 子文件引用）
   fetch('/portal.json')
     .then(res => res.json())
@@ -99,10 +116,12 @@ export const usePortalStore = defineStore('portal', () => {
     searchQuery,
     activeCategory,
     loading,
+    theme,
     allSystems,
     filteredSystems,
     groupedSystems,
     setSearch,
-    setCategory
+    setCategory,
+    toggleTheme
   }
 })

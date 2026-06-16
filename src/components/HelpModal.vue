@@ -51,7 +51,7 @@ const activeTab = ref('usage')
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(0, 0, 0, 0.55);
+  background: var(--modal-overlay);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -63,8 +63,8 @@ const activeTab = ref('usage')
   max-width: calc(100vw - 48px);
   height: calc(100vh - 120px);
   max-height: calc(100vh - 120px);
-  background: #1a1f2e;
-  border: 1px solid rgba(56, 189, 248, 0.1);
+  background: var(--modal-bg);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   display: flex;
