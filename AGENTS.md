@@ -1,4 +1,4 @@
-# AGENTS.md — 品杰科技 (pinjie-tech)
+# AGENTS.md
 
 ## Quick start
 
