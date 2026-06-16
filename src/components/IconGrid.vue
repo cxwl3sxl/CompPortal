@@ -40,6 +40,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { ElMessage } from 'element-plus'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
 const query = ref('')
@@ -62,6 +63,7 @@ const filteredIcons = computed(() => {
 function copyName(name) {
   navigator.clipboard.writeText(name).then(() => {
     copied.value = name
+    ElMessage.success(`已复制: ${name}`)
     setTimeout(() => {
       if (copied.value === name) copied.value = null
     }, 1500)
