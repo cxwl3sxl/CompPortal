@@ -158,7 +158,7 @@ function getCategoryIcon(icon) {
 .home {
   display: flex;
   min-height: calc(100vh - var(--header-height));
-  padding-top: var(--header-height);
+  padding-top: 0;
 }
 
 .sidebar {
@@ -291,6 +291,7 @@ function getCategoryIcon(icon) {
   margin-left: var(--sidebar-width);
   padding: 32px 40px;
   min-height: calc(100vh - var(--header-height));
+  background: var(--main-bg);
 }
 
 .content-header {
