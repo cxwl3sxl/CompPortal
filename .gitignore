@@ -2,3 +2,5 @@
 /node_modules
 /public/portal.json
 /public/systems
+help.json
+site.json
