@@ -4,82 +4,86 @@
 
 ## 快速开始
 
-### 安装依赖
 ```bash
 npm install
+npm run dev    # http://localhost:5173
+npm run build  # 输出到 dist/
 ```
 
-### 启动开发服务器
-```bash
-# 同时启动前后端（推荐）
-npm run dev & npm run server:dev
-
-# 或分别启动
-npm run dev        # 前端 http://localhost:5173
-npm run server:dev # 后端 http://localhost:3001
-```
-
-### 生产构建
-```bash
-npm run build
-```
+> 纯静态前端，无后端依赖。`public/` 下的 JSON 文件在浏览器端通过 `fetch()` 加载。
 
 ## 项目结构
 
 ```
-├── data/               # JSON数据文件
-│   ├── categories.json # 分类配置
-│   └── systems.json    # 系统链接配置
-├── public/             # 静态资源
-│   ├── portal.json     # 门户数据（分类 + 系统）
-│   ├── site.json       # 站点标题配置
-│   ├── help.json       # 帮助内容配置
-│   └── logo.svg
-├── server/             # Express后端
-│   └── index.js
-├── src/                # Vue前端
-│   ├── components/     # 组件
-│   ├── views/          # 页面
-│   ├── router/         # 路由
-│   ├── store/          # Pinia状态管理
-│   └── styles/         # 全局样式
+├── public/               # 静态资源（直接部署）
+│   ├── portal.json       # 门户数据（分类定义 + 系统子文件引用）
+│   ├── systems/          # 各分类的系统列表
+│   │   ├── public-systems.json
+│   │   ├── product-deployment.json
+│   │   ├── dev-tools.json
+│   │   └── internal-network.json
+│   ├── site.json         # 站点标题配置
+│   ├── help.json         # 帮助内容配置
+│   ├── logo.svg
+│   └── favicon.svg
+├── src/                  # Vue 前端
+│   ├── components/       # 组件
+│   ├── views/            # 页面
+│   ├── router/           # 路由
+│   ├── store/            # Pinia 状态管理
+│   └── styles/           # 全局样式
 ├── index.html
 ├── vite.config.js
 └── package.json
 ```
 
-## 配置系统链接
+## 配置数据
 
-编辑 `data/systems.json` 添加或修改系统：
+### portal.json — 分类与系统入口
 
-```json
-{
-  "id": "sys-1",
-  "name": "系统名称",
-  "url": "http://system.company.com",
-  "description": "系统简介",
-  "icon": "document",
-  "category": "cat-1",
-  "tags": ["标签1", "标签2"],
-  "department": "所属部门",
-  "isActive": true,
-  "sortOrder": 0
-}
-```
-
-## 配置分类
-
-编辑 `data/categories.json` 管理分类：
+顶层数组，每项定义一个分类，`systems` 指向 `public/systems/` 下的子文件：
 
 ```json
 {
-  "id": "cat-1",
-  "name": "分类名称",
-  "description": "分类描述",
-  "icon": "Monitor",
-  "sortOrder": 0
+  "name": "公网系统",
+  "description": "部署于公网的各个系统",
+  "icon": "globe",
+  "systems": "systems/public-systems.json"
 }
 ```
+
+| 字段 | 说明 |
+|------|------|
+| `name` | 分类名称 |
+| `description` | 分类描述 |
+| `icon` | Font Awesome 图标名（fas） |
+| `systems` | 系统列表子文件的路径 |
+
+### 系统条目格式
+
+子文件为对象数组，每个对象代表一个系统：
+
+```json
+{
+  "name": "急救秘书管理中心",
+  "url": "https://sec-mgr-center.pjservice.cn/",
+  "description": "急救秘书管理、注册中心",
+  "icon": "file-word",
+  "tags": ["急救秘书"],
+  "department": "研发部"
+}
+```
+
+| 字段 | 说明 |
+|------|------|
+| `name` | 系统名称 |
+| `url` | 系统链接 |
+| `description` | 系统描述 |
+| `icon` | (可选) Font Awesome 图标名，为空则使用多彩渐变默认图标 |
+| `tags` | 标签数组，用于搜索匹配 |
+| `department` | 所属部门 |
+
+> 编辑后无需重新构建，刷新浏览器即可生效。生产环境重新部署 `dist/` 即可。
 
 ## 配置站点标题
 
@@ -117,21 +121,10 @@ npm run build
 
 > 请求失败时，默认显示"欢迎使用XX公司门户网站"。
 
-## API接口
-
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| GET | /api/systems | 获取所有系统 |
-| POST | /api/systems | 创建系统 |
-| PUT | /api/systems/:id | 更新系统 |
-| DELETE | /api/systems/:id | 删除系统 |
-| GET | /api/categories | 获取所有分类 |
-| POST | /api/categories | 创建分类 |
-| PUT | /api/categories/:id | 更新分类 |
-| DELETE | /api/categories/:id | 删除分类 |
-
 ## 技术栈
 
-- **前端**: Vue 3 + Vite + Element Plus + Pinia
-- **后端**: Node.js + Express
-- **数据**: JSON文件存储
+- **框架**: Vue 3 + Vite
+- **UI 库**: Element Plus + Font Awesome 6
+- **状态管理**: Pinia
+- **样式**: SCSS + CSS Custom Properties (深色/浅色双主题)
+- **数据**: JSON 文件 (浏览器端 fetch 加载，无需后端)
