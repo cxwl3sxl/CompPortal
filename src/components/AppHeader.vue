@@ -5,8 +5,8 @@
         <div class="logo-icon">
           <img src="/logo.svg" width="100%" height="100%" />
         </div>
-        <span class="title">品杰科技</span>
-        <span class="badge">Portal</span>
+        <span class="title">{{ siteConfig.title }}</span>
+        <span class="badge">{{ siteConfig.badge }}</span>
       </div>
     </div>
     <div class="header-center">
@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { usePortalStore } from '@/store/portal'
 import HelpModal from '@/components/HelpModal.vue'
 
@@ -54,6 +54,21 @@ const store = usePortalStore()
 const searchInput = ref('')
 const searchFocused = ref(false)
 const showHelp = ref(false)
+
+const siteConfig = ref({
+  title: 'XX公司',
+  badge: 'Portal'
+})
+
+onMounted(async () => {
+  try {
+    const res = await fetch('/site.json')
+    if (!res.ok) throw new Error(res.statusText)
+    siteConfig.value = await res.json()
+  } catch (e) {
+    console.error('Failed to load site config:', e)
+  }
+})
 
 function handleSearch() {
   store.setSearch(searchInput.value)
