@@ -3,7 +3,8 @@
     <div class="header-left">
       <div class="logo">
         <div class="logo-icon">
-          <img src="/logo.svg" width="100%" height="100%" />
+          <img v-if="siteConfig.logo" :src="siteConfig.logo" width="100%" height="100%" />
+          <font-awesome-icon v-else :icon="['fas', 'award']" />
         </div>
         <span class="title">{{ siteConfig.title }}</span>
         <span class="badge">{{ siteConfig.badge }}</span>
@@ -28,9 +29,11 @@
     </div>
     <div class="header-right">
       <button class="theme-btn" @click="store.toggleTheme()" :title="store.theme === 'dark' ? '切换浅色模式' : '切换深色模式'">
-        <svg v-if="store.theme === 'dark'" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+        <svg v-if="store.theme === 'dark'" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+          stroke-width="2">
           <circle cx="12" cy="12" r="5" />
-          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          <path
+            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
         </svg>
         <svg v-else viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
@@ -57,7 +60,8 @@ const showHelp = ref(false)
 
 const siteConfig = ref({
   title: 'XX公司',
-  badge: 'Portal'
+  badge: 'Portal',
+  logo: ""
 })
 
 onMounted(async () => {
@@ -65,6 +69,9 @@ onMounted(async () => {
     const res = await fetch('/site.json')
     if (!res.ok) throw new Error(res.statusText)
     siteConfig.value = await res.json()
+    if (siteConfig.value.title) {
+      document.title = `${siteConfig.value.title} - 门户网站`;
+    }
   } catch (e) {
     console.error('Failed to load site config:', e)
   }
@@ -115,6 +122,11 @@ function clearSearch() {
   align-items: center;
   justify-content: center;
   color: #fff;
+}
+
+.logo-icon>i {
+  width: 36px;
+  height: 36px;
 }
 
 .title {
