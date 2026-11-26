@@ -144,13 +144,7 @@ const currentCategory = computed(() => {
 })
 
 function getCategoryIcon(icon) {
-  const iconMap = {
-    globe: 'globe',
-    rocket: 'rocket',
-    wrench: 'wrench',
-    'network-wired': 'network-wired',
-  }
-  return ['fas', iconMap[icon] || 'cube']
+  return ['fas', icon || 'cube']
 }
 </script>
 
